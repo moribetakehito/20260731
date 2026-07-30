@@ -232,27 +232,28 @@
     </section>
   </main>
 <script>
-  history.scrollRestoration = "manual";
+  function jumpToSection() {
+    const params = new URLSearchParams(location.search);
+    const id = params.get("jump");
 
-  function jumpToHash() {
-    const id = decodeURIComponent(location.hash.slice(1));
     if (!id) return;
 
     const target = document.getElementById(id);
-    if (target) {
-      target.scrollIntoView({
-        behavior: "auto",
-        block: "start"
-      });
-    }
+    if (!target) return;
+
+    target.scrollIntoView({
+      behavior: "auto",
+      block: "start"
+    });
   }
 
-  window.addEventListener("DOMContentLoaded", jumpToHash);
-  window.addEventListener("load", () => {
-    setTimeout(jumpToHash, 100);
-  });
-  window.addEventListener("pageshow", jumpToHash);
-  window.addEventListener("hashchange", jumpToHash);
+  window.addEventListener("DOMContentLoaded", jumpToSection);
+  window.addEventListener("load", jumpToSection);
+  window.addEventListener("pageshow", jumpToSection);
+
+  setTimeout(jumpToSection, 300);
+  setTimeout(jumpToSection, 1000);
+  setTimeout(jumpToSection, 2000);
 </script>
 </body>
 </html>
