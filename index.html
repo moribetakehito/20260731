@@ -3,6 +3,67 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>空間概念のつづきを考える</title>
+
+  <style>
+    body {
+      margin: 0;
+      color: #111;
+      background: #f5f5f5;
+      font-family: "Yu Gothic", "YuGothic", "Hiragino Sans", sans-serif;
+      line-height: 2.3;
+    }
+
+    main {
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: 3rem 1.25rem 8rem;
+    }
+  </style>
+</head>
+
+<body>
+  <main id="content"></main>
+
+  <script>
+    async function loadSection() {
+      const id = location.hash.slice(1) || "00";
+      const safeId = /^\d{2}$/.test(id) ? id : "00";
+      const content = document.getElementById("content");
+
+      try {
+        const response = await fetch(`sections/${safeId}.html`);
+
+        if (!response.ok) {
+          throw new Error("ページが見つかりません");
+        }
+
+        content.innerHTML = await response.text();
+      } catch (error) {
+        content.innerHTML = `
+          <h1>ページが見つかりません</h1>
+          <p><a href="#00">最初のページへ戻る</a></p>
+        `;
+      }
+
+      window.scrollTo(0, 0);
+    }
+
+    window.addEventListener("DOMContentLoaded", loadSection);
+    window.addEventListener("hashchange", loadSection);
+  </script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>空間概念のつづきを考える ――触視的建築へ | moribe takehito</title>
   <meta name="description" content="空間概念のつづきを考える ――触視的建築へ">
   <link rel="icon" type="image/png" href="/favicon.png">
