@@ -154,39 +154,32 @@
       <h1><a href="#08">08 コンクリート・ポエトリー(具体詩)</a></h1>
       <p>本文</p>
     </section>
-		<section id="09">
-      <h1><a href="#09">09 マイクロデュレイション/情景図式/記号場</a></h1>
-      
-      <p>
-      
-      </p>
+    <section id="09">
+      <h1><a href="#09">09 ことばの物質性</a></h1>
+      <p>本文</p>
     </section>
     <section id="10">
-      <h1><a href="#10">10 ことばの物質性</a></h1>
+      <h1><a href="#10">10 朗読/実行 としての〈手〉</a></h1>
       <p>本文</p>
     </section>
     <section id="11">
-      <h1><a href="#11">11 朗読/実行 としての〈手〉</a></h1>
+      <h1><a href="#11">11 触覚的無意識</a></h1>
       <p>本文</p>
     </section>
     <section id="12">
-      <h1><a href="#12">12 触覚的無意識</a></h1>
+      <h1><a href="#12">12 触覚的視覚</a></h1>
       <p>本文</p>
     </section>
     <section id="13">
-      <h1><a href="#13">13 触覚的視覚</a></h1>
+      <h1><a href="#13">13 触視的建築へ</a></h1>
       <p>本文</p>
     </section>
     <section id="14">
-      <h1><a href="#14">14 触視的建築へ</a></h1>
+      <h1><a href="#14">14 参考</a></h1>
       <p>本文</p>
     </section>
     <section id="15">
-      <h1><a href="#15">15 参考</a></h1>
-      <p>本文</p>
-    </section>
-    <section id="16">
-      <h1><a href="#16">16 展示解説</a></h1>
+      <h1><a href="#15">15 展示解説</a></h1>
       <p>
       　展示の紙面を見ると、そこにはWebページに使われるHTMLが書かれている。これはページ内のテキストや表題や画像といった各要素の関係性を表すためのマークダウン記法と呼ばれるものだ。たとえば
 	  </p>
@@ -198,8 +191,8 @@
       　あなたは右下のQRコードを読み取りリンクを開くことで、そのHTMLが使われたWebページを見ることができる。日本のコンクリート・ポエトリーの第一人者である新国誠一は、具体詩が視覚的なものとしてのみ扱われることを拒み、朗読を重要視した。朗読をすることで立ち上がってくることばの物質性を具体詩の中に位置づけようとしたのだ。新国にとっての朗読を、現代的に〈QRコードの読み取り〉として再考する。あなたがQRコードを読み取るとき、指先でスマートフォンの画面を操作する。触覚を介して現れるWebページはこのプレゼンテーションの説明であり、あなたの(もはや身体の一部となってしまったかもしれない)スマートフォンがHTMLを解釈したものである。
       <p/>
 	</section>
-    <section id="17">
-      <h1><a href="#17">17 2025年4月1日の日記</a></h1>
+    <section id="16">
+      <h1><a href="#16">16 2025年4月1日の日記</a></h1>
 			<p>
 			　今日から大学院に入った。大学院に入ったみたいな実感は全く無くて。学部と修士で研究室は変わったのだけれども、今日も学部の研究室で作業していた。違う大学に進学する先輩もいた。大学院に入るみたいな実感はない。
 			</p>
@@ -238,5 +231,28 @@
 			</p>
     </section>
   </main>
+<script>
+  history.scrollRestoration = "manual";
+
+  function jumpToHash() {
+    const id = decodeURIComponent(location.hash.slice(1));
+    if (!id) return;
+
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({
+        behavior: "auto",
+        block: "start"
+      });
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", jumpToHash);
+  window.addEventListener("load", () => {
+    setTimeout(jumpToHash, 100);
+  });
+  window.addEventListener("pageshow", jumpToHash);
+  window.addEventListener("hashchange", jumpToHash);
+</script>
 </body>
 </html>
